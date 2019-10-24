@@ -84,6 +84,9 @@ public class WingSpanGame {
 								//Roll.DisplayDice();
 								for(int g = 0; g < amountOfChoice; g++)
 								{
+									System.out.println("Choose the type of food to take: ");
+									//Roll.DisplayDice();
+									
 									
 								}
 				//				PlayerList.get(i).ViewBoard();
