@@ -60,7 +60,6 @@ public class Player {
 	}
 	public void PlaceBirdCard(int choice) //// Takes the GainFoodRow and places the bird in the next available slot
 	{
-		
 		GainFoodRow.add(Hand.get(choice));
 		Hand.remove(choice);
 		ActionTokens--;
