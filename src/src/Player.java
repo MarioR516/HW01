@@ -2,7 +2,6 @@ package src;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Player {
 	
@@ -33,6 +32,32 @@ public class Player {
 		
 		
 	}
+	public int AmountofFood()
+	{
+		int amount;
+		switch(GainFoodRow.size())
+		{
+		case 0:
+			amount = 1;
+			break;
+		case 1:
+			amount = 1;
+			break;
+		case 2:
+			amount = 2;
+			break;
+		case 3:
+			amount = 3;
+			break;
+		case 4:
+			amount = 4;
+			break;
+		default:
+			amount  = 0;
+			break;
+		}
+		return amount;
+	}
 	public void PlaceBirdCard(int choice) //// Takes the GainFoodRow and places the bird in the next available slot
 	{
 		
@@ -46,43 +71,16 @@ public class Player {
 	{
 		for(int i = 0; i < Hand.size(); i++)
 		{
-			System.out.println(i+" : " + Hand.get(i).getName());
+			System.out.println(i+" : " + Hand.get(i).getName() + "  " + " FoodType: " + Hand.get(i).TypeOfFood);
+		}
+		System.out.println();
+		System.out.println("Available food: ");
+		for(int i = 0; i < FoodTokens.size();i++)
+		{
+			System.out.println(FoodTokens.get(i));
 		}
 	}
 	
-	public void playFoodTokens()//// Returns a food when you play the action Gain Food on Board.
-	{
-		switch(GainFoodRow.size())
-		{
-		case 0:
-			
-			break;
-			
-		case 1:
-		
-			break;
-			
-		case 2:
-			
-			break;
-		
-		case 3:
-			
-			break;
-		
-		case 4:
-			
-			break;
-		
-		case 5:
-			
-			break;
-		default:
-			break;
-				
-		}
-		this.ActionTokens--;
-	}
 	
 	
 	
@@ -92,7 +90,7 @@ public class Player {
 		System.out.print("Gain Food Row: ");
 		for(int i =0; i < GainFoodRow.size();i++)
 		{
-			System.out.println( "["+ GainFoodRow.get(i).getName()+"]"+ "   ");
+			System.out.print( "["+ GainFoodRow.get(i).getName()+"]"+ "   ");
 		}
 		System.out.println();
 	}
