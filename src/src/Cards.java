@@ -20,7 +20,7 @@ public class Cards {
 		this.habitat = 'w';
 		this.power = "Activate";
 		}
-		
+		//
 		//Constructor that initializes class variables
 		Cards(int e,String n,int c,char h,String p , String Food){
 			this.egg = e;
