@@ -205,16 +205,9 @@ public class WingSpanGame {
 									takesTurn = true;
 									break;
 								case 3:
-									for(int k = 0; k < PlayerList.get(i).GainFoodRow.size();k++)
-									{
-										System.out.println(PlayerList.get(i).GainFoodRow.get(k).name);
-									}
-									break;
-									
-								default:
-									System.out.println("Invalid input, turn nulled");
-									takesTurn = false;
-									break;
+										///////Needs to be implemented.
+								case 4:
+									///// Need to be implemented
 							}
 					}
 				takesTurn = false;
@@ -224,7 +217,7 @@ public class WingSpanGame {
 		
 		for(int i = 0; i < PlayerList.size();i++)
 		{
-			System.out.println("Player "+i+" score : "+ PlayerList.get(i).score());
+			System.out.println("Player "+i+" score : "+ PlayerList.get(i).score());//// Will modify once option 3 and 4 are implemented
 		}
 		input.close();
 	}
