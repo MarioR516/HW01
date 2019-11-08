@@ -210,7 +210,12 @@ public class Player {
 				break;
 				
 		}
+		if(GainFoodRow.isEmpty() == false)
+		{
+			eggCap += GainFoodRow.get(GainFoodRow.size()-1).egg;
+		}
 		return check;
+		//
 		
 	}
 	public Boolean PutinGrasslands(int choice) 
@@ -292,6 +297,10 @@ public class Player {
 				
 				
 		}
+		if(GainEggsRow.isEmpty() == false)
+		{
+			eggCap += GainEggsRow.get(GainEggsRow.size()-1).egg;
+		}
 		return check;
 		
 	}
@@ -372,6 +381,10 @@ public class Player {
 				System.out.println("Can't fit anymore birds into row");
 				break;
 				
+		}
+		if(GainCardsRow.isEmpty() == false)
+		{
+			eggCap += GainCardsRow.get(GainCardsRow.size()-1).egg;
 		}
 		return check;
 		
