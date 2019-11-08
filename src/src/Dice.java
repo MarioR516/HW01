@@ -74,7 +74,7 @@ public class Dice
     //
     public void RollDice() {
     	
-        String[] FoodTokenList = {"Invertebrate", "Seed", "Fish", "Fruit", "Rodent", "Invertebrate_Seed"};
+        String[] FoodTokenList = {"Invertebrate", "Seed", "Fish", "Fruit", "Rodent"};
     	
     	for(int k = 0; k < 5; k++)
     	{
@@ -96,7 +96,7 @@ public class Dice
 		        	CurrentDiceRoll.add(FoodTokenList[roll]);
 		            break;
 		        case 5:
-		        	CurrentDiceRoll.add(FoodTokenList[roll]);
+		        	CurrentDiceRoll.add(FoodTokenList[roll-1]);
 		            break;
 		    }
     	} 
