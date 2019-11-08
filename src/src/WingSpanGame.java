@@ -50,9 +50,11 @@ public class WingSpanGame {
 					System.out.println(PlayerList.get(i).name+ " choose option: ");
 					System.out.println("1: Play Bird Card");
 					System.out.println("2: Gain Food");
+					System.out.println("3: Gain Eggs");
+					System.out.println("4: Gain Card");
 							option = op.nextInt();
-							while (option != 1 && option != 2 && option != 3){
-					            System.out.println("You must enter 1 or 2");
+							while (option != 1 && option != 2 && option != 3 && option != 4){
+					            System.out.println("You must enter 1,2,3, or 4");
 					            option = op.nextInt();
 					        }
 							switch(option)
@@ -62,43 +64,103 @@ public class WingSpanGame {
 									{
 										System.out.println("No more cards buddy");
 										takesTurn = false;
-										break;
 									}
 									else
 									{
-										System.out.println("Choose card: ");
-										PlayerList.get(i).DisplayHand();
-										System.out.println(PlayerList.get(i).name + "'s action tokens left : " +  PlayerList.get(i).ActionTokens);
-										while(op.hasNext())
+										System.out.println("Choose row:");
+										System.out.println("1) Forest");
+										System.out.println("2) Grasslands");
+										System.out.println("3) Wetlands");
+										option = op.nextInt();
+										while(option != 1 && option != 2 && option != 3)
 										{
 											option = op.nextInt();
-											if(option < PlayerList.get(i).Hand.size() )
-											{
+										}
+										switch(option)
+										{
+											case 1:
+												PlayerList.get(i).DisplayHand();
+												System.out.println("Choose card: ");
+												option = op.nextInt();
+												while(option >= PlayerList.get(i).Hand.size())
+												{	
+													option = op.nextInt();
+												}
+												if(PlayerList.get(i).Hand.get(option).Habitat == "Forest" && PlayerList.get(i).FoodTokens.contains(PlayerList.get(i).Hand.get(option).TypeOfFood))
+												{
+													PlayerList.get(i).PutinForest(option);
+													takesTurn = true;
+												}
+												else
+												{
+													if(PlayerList.get(i).Hand.get(option).Habitat != "Forest")
+													{
+														System.out.println("Wrong Habitat");
+													}
+													else
+													{
+														System.out.println("Not enough food");
+													}
+													takesTurn = false;
+												}
 												break;
-											}
-											else
-											{
-												continue;
-											}
+											case 2:
+												PlayerList.get(i).DisplayHand();
+												System.out.println("Choose card: ");
+												option = op.nextInt();
+												while(option >= PlayerList.get(i).Hand.size())
+												{	
+													option = op.nextInt();
+												}
+												if(PlayerList.get(i).Hand.get(option).Habitat == "Grassland" && PlayerList.get(i).FoodTokens.contains(PlayerList.get(i).Hand.get(option).TypeOfFood))
+												{
+													PlayerList.get(i).PutinGrasslands(option);
+													takesTurn = true;
+												}
+												else
+												{
+													if(PlayerList.get(i).Hand.get(option).Habitat != "Grassland")
+													{
+														System.out.println("Wrong Habitat");
+													}
+													else
+													{
+														System.out.println("Not enough food");
+													}
+													takesTurn = false;
+												}
+												break;
+											case 3:
+												PlayerList.get(i).DisplayHand();
+												System.out.println("Choose card: ");
+												option = op.nextInt();
+												while(option >= PlayerList.get(i).Hand.size())
+												{	
+													option = op.nextInt();
+												}
+												if(PlayerList.get(i).Hand.get(option).Habitat == "Wetland" && PlayerList.get(i).FoodTokens.contains(PlayerList.get(i).Hand.get(option).TypeOfFood))
+												{
+													PlayerList.get(i).PutinWetlands(option);
+													takesTurn = true;
+												}
+												else
+												{
+													if(PlayerList.get(i).Hand.get(option).Habitat != "Wetland")
+													{
+														System.out.println("Wrong Habitat");
+													}
+													else
+													{
+														System.out.println("Not enough food");
+													}
+													takesTurn = false;
+												}
+												break;
 										}
-										if(PlayerList.get(i).FoodTokens.contains(PlayerList.get(i).Hand.get(option).TypeOfFood))
-										{
-											PlayerList.get(i).PlaceBirdCard(option);
-											PlayerList.get(i).eggs = PlayerList.get(i).eggs + PlayerList.get(i).GainFoodRow.get(option).egg;
-											PlayerList.get(i).FoodTokens.remove(PlayerList.get(i).Hand.get(option).TypeOfFood);
-											takesTurn = true;
-											PlayerList.get(i).ViewBoard();
-										
-										}
-										else
-										{
-											System.out.println("Dont have the food to play that bird");
-											takesTurn = false;
-											
-										}
-										break;
+
 									}
-								
+									PlayerList.get(i).ViewBoard();
+									break;
 								case 2:
 									Roll.DisplayDice();
 									int amount = PlayerList.get(i).AmountofFood();
@@ -108,7 +170,7 @@ public class WingSpanGame {
 										System.out.println("ReRoll???? (yes/no)");
 										yesno = op.nextLine();
 										while (!yesno.equals ("yes") && !yesno.equals ("no")){
-								            System.out.println("You must write 'Yes' or 'No'");
+								            System.out.println("You must write 'yes' or 'no'");
 								            yesno = op.nextLine();
 								        }
 										if( yesno.equals("yes"))
@@ -145,7 +207,7 @@ public class WingSpanGame {
 								case 3:
 									for(int k = 0; k < PlayerList.get(i).GainFoodRow.size();k++)
 									{
-										System.out.println(PlayerList.get(i).GainFoodRow.get(k).getName());
+										System.out.println(PlayerList.get(i).GainFoodRow.get(k).name);
 									}
 									break;
 									
