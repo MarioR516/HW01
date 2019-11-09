@@ -205,33 +205,20 @@ public class WingSpanGame {
 									takesTurn = true;
 									break;
 								case 3:
-									Roll.DisplayDice();
-									int eggCounter;
-									int new_eggs = 1;
-									new_eggs += PlayerList.get(i).PutinGrasslands(option);
-									eggCounter += new_eggs;
-							    	
-									String yesno;
-									if(Roll.CheckIfAllSame()==true)
+									int actionTokens = PlayerList.get(i).ActionTokens;
+									int amount_eggs = PlayerList.get(i).AmountofEggs();
+									int amount_cards = PlayerList.get(i).AmountofCards();
+									while (PlayerList.get(i).PutinGrasslands(option)) 
 									{
-										System.out.println("ReRoll???? (yes/no)");
-										yesno = op.nextLine();
-										while (!yesno.equals ("yes") && !yesno.equals ("no")){
-								            System.out.println("You must write 'yes' or 'no'");
-								            yesno = op.nextLine();
-								        }
-										if( yesno.equals("yes"))
+										if (amount_cards <= PlayerList.get(i).eggCap)
 										{
-											Roll.CurrentDiceRoll.clear();
-											Roll.RollDice();
-											Roll.DisplayDice();
-											
+											actionTokens--;
+											amount_eggs++;
 										}
 									}
-									
-									System.out.println("Number of your eggs now is " + eggCounter);
-									
-									PlayerList.get(i).PlaceBirdCard(option);
+
+									break;
+
 									
 								case 4:
 									///// Need to be implemented
