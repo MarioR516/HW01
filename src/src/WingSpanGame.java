@@ -220,8 +220,37 @@ public class WingSpanGame {
 									break;
 
 									
-								case 4:
-									///// Need to be implemented
+								case 4: // Gain Card
+									PlayerList.get(i).DisplayHand();
+									System.out.println("How many Cards: ");
+									option = op.nextInt();
+									while(option >= PlayerList.get(i).Hand.size())
+									{	
+										option = op.nextInt();
+									} 
+									// If slot of action cube shows egg-to-card, discard
+									// at most 1 egg to draw additional card
+									while (PlayerList.get(i).Hand.get(EggtoCard(option)))
+									{		
+										amount_eggs--;
+										amount_cards++;
+									}
+									if(PlayerList.get(i).Hand.get(option).getHabitat() == "Wetland" && PlayerList.get(i).FoodTokens.contains(PlayerList.get(i).Hand.get(option).TypeOfFood))
+									{
+										PlayerList.get(i).PutinWetlands(option);
+										takesTurn = true;
+									}
+									else
+									{
+										if(PlayerList.get(i).Hand.get(option).getHabitat() != "Wetland")
+										{
+											System.out.println("Wrong Habitat");
+										}
+										takesTurn = false;
+									}
+									amount_cards++;
+									
+									break;
 							}
 					}
 				takesTurn = false;
