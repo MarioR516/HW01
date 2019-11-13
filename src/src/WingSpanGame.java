@@ -218,7 +218,7 @@ public class WingSpanGame {
 										takesTurn = false;
 									}
 									break;
-								case 4:
+								case 4:///// Case 4 is implemented on the View side, but needs implementation in the model side. The card class holds the implementation.
 									PlayerList.get(i).Hand.addAll(Deck.GetCards(PlayerList.get(i).AmountofCards()));
 									takesTurn = true;
 									break;
@@ -233,7 +233,7 @@ public class WingSpanGame {
 		List<Integer> eggs = new ArrayList<Integer>();
 		for(int i = 0; i < PlayerList.size();i++)
 		{
-			System.out.println("Player "+i+" score : "+ PlayerList.get(i).score());//// Will modify once option 3 and 4 are implemented
+			System.out.println("Player "+i+" score : "+ PlayerList.get(i).score());//// Check score on amount of eggs
 			if(PlayerList.get(i).score() > num)
 			{
 				num = PlayerList.get(i).score();
