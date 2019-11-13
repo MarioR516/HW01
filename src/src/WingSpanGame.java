@@ -12,7 +12,8 @@ public class WingSpanGame {
 		System.out.println("How many player (0-4)");
 		Scanner input = new Scanner(System.in);
 		int numPlayers = input.nextInt();
-		
+		Cards Deck = new Cards();
+		///////User implementation (how many players in game and their names)
 		while(true) {
 			
 		if(numPlayers > 0 && numPlayers <= 4)
@@ -33,33 +34,34 @@ public class WingSpanGame {
 		}
 		
 		}
-		Dice Roll = new Dice();
+		Dice Roll = new Dice();//// This establishes the bird feeder.
 		Roll.RollDice();
 		Roll.DisplayDice();
 		
 		int option;
 		Boolean takesTurn = false;
-		for(int a = 0; a < 8; a++)
+		for(int a = 0; a < 8; a++)////The start of the game, the for loop goes around 8 times representing 8 action cubes
 		{
-			for(int i = 0; i <= PlayerList.size()-1;i++)
+			
+			for(int i = 0; i <= PlayerList.size()-1;i++)//// Loops through all players established in the game
 			{
 				System.out.println();
-				while(takesTurn == false)
+				while(takesTurn == false)///// A while loop to make sure each player does a valid action. If not it return the same player to the beginning menu
 				{
 					Scanner op = new Scanner(System.in);
-					System.out.println(PlayerList.get(i).name+ " choose option: ");
+					System.out.println(PlayerList.get(i).name+ " choose option: ");////// The main action menu
 					System.out.println("1: Play Bird Card");
 					System.out.println("2: Gain Food");
 					System.out.println("3: Gain Eggs");
 					System.out.println("4: Gain Card");
 							option = op.nextInt();
-							while (option != 1 && option != 2 && option != 3 && option != 4){
+							while (option != 1 && option != 2 && option != 3 && option != 4){///User validation for all 4 options
 					            System.out.println("You must enter 1,2,3, or 4");
 					            option = op.nextInt();
 					        }
 							switch(option)
 							{
-								case 1:
+								case 1:///Case  1 establishes the Play bird action.
 									if(PlayerList.get(i).Hand.isEmpty())
 									{
 										System.out.println("No more cards buddy");
@@ -76,7 +78,7 @@ public class WingSpanGame {
 										{
 											option = op.nextInt();
 										}
-										switch(option)
+										switch(option)//// Within this action another switch statement is implemented to place the bird card in any 3 of the rows.
 										{
 											case 1:
 												PlayerList.get(i).DisplayHand();
@@ -205,63 +207,44 @@ public class WingSpanGame {
 									takesTurn = true;
 									break;
 								case 3:
-									int actionTokens = PlayerList.get(i).ActionTokens;
-									int amount_eggs = PlayerList.get(i).AmountofEggs();
-									int amount_cards = PlayerList.get(i).AmountofCards();
-									while (PlayerList.get(i).PutinGrasslands(option)) 
+									if(PlayerList.get(i).eggCap >= PlayerList.get(i).eggs + PlayerList.get(i).AmountofEggs())
 									{
-										if (amount_cards <= PlayerList.get(i).eggCap)
-										{
-											actionTokens--;
-											amount_eggs++;
-										}
-									}
-
-									break;
-
-									
-								case 4: // Gain Card
-									PlayerList.get(i).DisplayHand();
-									System.out.println("How many Cards: ");
-									option = op.nextInt();
-									while(option >= PlayerList.get(i).Hand.size())
-									{	
-										option = op.nextInt();
-									} 
-									// If slot of action cube shows egg-to-card, discard
-									// at most 1 egg to draw additional card
-									while (PlayerList.get(i).Hand.get(EggtoCard(option)))
-									{		
-										amount_eggs--;
-										amount_cards++;
-									}
-									if(PlayerList.get(i).Hand.get(option).getHabitat() == "Wetland" && PlayerList.get(i).FoodTokens.contains(PlayerList.get(i).Hand.get(option).TypeOfFood))
-									{
-										PlayerList.get(i).PutinWetlands(option);
+										PlayerList.get(i).eggs += PlayerList.get(i).AmountofEggs();
 										takesTurn = true;
 									}
 									else
 									{
-										if(PlayerList.get(i).Hand.get(option).getHabitat() != "Wetland")
-										{
-											System.out.println("Wrong Habitat");
-										}
+										System.out.println("Not enough birds to gain eggs");
 										takesTurn = false;
 									}
-									amount_cards++;
-									
+									break;
+								case 4:
+									PlayerList.get(i).Hand.addAll(Deck.GetCards(PlayerList.get(i).AmountofCards()));
+									takesTurn = true;
 									break;
 							}
 					}
 				takesTurn = false;
 				}
-				
 			}
-		
+		int num = 0;
+		String winner = null;
+		Boolean tie = false;
+		List<Integer> eggs = new ArrayList<Integer>();
 		for(int i = 0; i < PlayerList.size();i++)
 		{
 			System.out.println("Player "+i+" score : "+ PlayerList.get(i).score());//// Will modify once option 3 and 4 are implemented
+			if(PlayerList.get(i).score() > num)
+			{
+				num = PlayerList.get(i).score();
+				winner = PlayerList.get(i).name;
+			}
+			
+			
 		}
+
+		System.out.println("The winner is " + winner + "!!!!!");
+		
 		input.close();
 	}
 	
