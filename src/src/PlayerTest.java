@@ -12,7 +12,7 @@ public class PlayerTest {
 		Player m = new Player("M",1);
 		m.FoodTokens.add("Fish");
 		m.FoodTokens.add("Seed");
-		m.FoodTokens.add("Invertabrae");
+		m.FoodTokens.add("Invertabrate");
 		m.FoodTokens.add("Rodent");
 		m.FoodTokens.add("Fruit");
 		m.eggCap = 20;
@@ -30,7 +30,7 @@ public class PlayerTest {
 		Player m = new Player("M",1);
 		m.FoodTokens.add("Fish");
 		m.FoodTokens.add("Seed");
-		m.FoodTokens.add("Invertabrae");
+		m.FoodTokens.add("Invertabrate");
 		m.FoodTokens.add("Rodent");
 		m.FoodTokens.add("Fruit");
 		m.eggCap = 20;
@@ -47,7 +47,7 @@ public class PlayerTest {
 		Player m = new Player("M",1);
 		m.FoodTokens.add("Fish");
 		m.FoodTokens.add("Seed");
-		m.FoodTokens.add("Invertabrae");
+		m.FoodTokens.add("Invertabrate");
 		m.FoodTokens.add("Rodent");
 		m.FoodTokens.add("Fruit");
 		m.eggCap = 20;
@@ -64,7 +64,7 @@ public class PlayerTest {
 		Player m = new Player("M",1);
 		m.FoodTokens.add("Fish");
 		m.FoodTokens.add("Seed");
-		m.FoodTokens.add("Invertabrae");
+		m.FoodTokens.add("Invertabrate");
 		m.FoodTokens.add("Rodent");
 		m.FoodTokens.add("Fruit");
 		m.eggCap = 20;
@@ -77,7 +77,7 @@ public class PlayerTest {
 		Player m = new Player("M",1);
 		m.FoodTokens.add("Fish");
 		m.FoodTokens.add("Seed");
-		m.FoodTokens.add("Invertabrae");
+		m.FoodTokens.add("Invertabrate");
 		m.FoodTokens.add("Rodent");
 		m.FoodTokens.add("Fruit");
 		m.eggCap = 20;
@@ -90,7 +90,7 @@ public class PlayerTest {
 		Player m = new Player("M",1);
 		m.FoodTokens.add("Fish");
 		m.FoodTokens.add("Seed");
-		m.FoodTokens.add("Invertabrae");
+		m.FoodTokens.add("Invertabrate");
 		m.FoodTokens.add("Rodent");
 		m.FoodTokens.add("Fruit");
 		m.eggCap = 20;
