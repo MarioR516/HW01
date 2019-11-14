@@ -1,7 +1,13 @@
+{  
+    "build":"javac PlayerTest.java",
+    "cmd":"java Player",
+    "cases": [
+      {"name":"testAmountofFood", "in":"foodin.txt", "expected":"foodinexpected.txt"},
+      {"name":"testAmountofEggs", "in":"eggsin.txt", "expected":"eggsinexpected.txt"},
+      {"name":"testAmountofCards", "in":"cardsin.txt", "expected":"cardsinexpected.txt"},
+      {"name":"testPutinForest", "in":"putinforestin.txt", "expected":"putinforestinexpected.txt"},
+      {"name":"testPutinGrasslands", "in":"putingrasslandsin.txt", "expected":"putingrasslandsinexpected.txt"},
+      {"name":"testPutinWetlans", "in":"putinwetlandsin.txt", "expected":"putinwetlandsinexpected.txt"}
+    ]
   
-{
-  "Classes": [{"Name": "TestCards"},
-              {"Name" : "TestPlayer"},
-              {"Name" : "TestDice"},
-              {"Name" : "TestGainEggs"}]
-}
+  }
