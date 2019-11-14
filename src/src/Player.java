@@ -10,14 +10,14 @@ public class Player {
 	
 	String name;
 	public List<String> FoodTokens;//// Food tokens has 5 different types of foods (Should we make a class for Foodtoken?)
-	int eggs;
+	public int eggs;
 	public int ActionTokens = 8;
 	public List<Cards> GainFoodRow;
 	public List<Cards> GainEggsRow;
 	public List<Cards> GainCardsRow;
 	public List<Cards> Hand;
 	int playerNum;//// For putting a number on a player
-	int eggCap;
+	public int eggCap;
 	int Invertabrate;
 	int Fruit;
 	int Fish;
