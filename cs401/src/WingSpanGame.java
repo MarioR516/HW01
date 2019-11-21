@@ -214,15 +214,14 @@ public class WingSpanGame {
 									takesTurn = true;
 									break;
 								case 3:
-									if(PlayerList.get(i).eggCap >= PlayerList.get(i).eggs + PlayerList.get(i).AmountofEggs())
+									if (PlayerList.get(i).eggCap >= PlayerList.get(i).eggs+PlayerList.get(i).AmountofEggs())
 									{
-										PlayerList.get(i).eggs += PlayerList.get(i).AmountofEggs();
+										PlayerList.get(i).Hand.addAll(Deck.gimmeCards(PlayerList.get(i).AmountofEggs()));
 										takesTurn = true;
 									}
-									else
-									{
+									else {
 										System.out.println("Not enough birds to gain eggs");
-										takesTurn = false;
+										takesTurn = false; 
 									}
 									break;
 								case 4:///// Case 4 gives cards to the Player. Amount of cards based on the how many bird cards in play on board.
