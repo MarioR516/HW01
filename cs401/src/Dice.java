@@ -110,5 +110,16 @@ public class Dice
     		System.out.println( (i) + ") " + CurrentDiceRoll.get(i));
     	}
     }
+	
+    public String getrolls(){
+    	String[] FoodTokenList = {"Invertebrate", "Seed", "Fish", "Fruit", "Rodent"};
+    	String[] DiceList = new String[FoodTokenList.length];
+    	int index = 0;
+    	for (Object value : FoodTokenList) {
+    	  DiceList[index] = (String) value;
+    	  index++;
+    	}
+    	return FoodTokenList[index];
+    }
 }
 
