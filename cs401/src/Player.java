@@ -1,5 +1,4 @@
 package src;
-//
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -7,7 +6,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 public class Player {
-	
 	String name;
 	public List<String> FoodTokens;//// Food tokens has 5 different types of foods (Should we make a class for Foodtoken?)
 	int eggs;
@@ -44,12 +42,7 @@ public class Player {
 		Food.put("Fruit",0);
 		Food.put("Seed",0);
 		Food.put("Rodent",0);
-		Food.put("Fish",0);
-		
-		
-		
-		
-		
+		Food.put("Fish",0);	
 	}
 	public int AmountofFood()
 	{
@@ -212,8 +205,6 @@ public class Player {
 			eggCap += GainFoodRow.get(GainFoodRow.size()-1).egg;
 		}
 		return check;
-		//
-		
 	}
 	public Boolean PutinGrasslands(int choice) 
 	{
@@ -290,16 +281,13 @@ public class Player {
 				break;
 			case 5:
 				System.out.println("Can't fit anymore birds into row");
-				break;
-				
-				
+				break;		
 		}
 		if(GainEggsRow.isEmpty() == false)
 		{
 			eggCap += GainEggsRow.get(GainEggsRow.size()-1).egg;
 		}
-		return check;
-		
+		return check;	
 	}
 	public Boolean PutinWetlands(int choice) 
 	{
@@ -376,15 +364,13 @@ public class Player {
 				break;
 			case 5:
 				System.out.println("Can't fit anymore birds into row");
-				break;
-				
+				break;		
 		}
 		if(GainCardsRow.isEmpty() == false)
 		{
 			eggCap += GainCardsRow.get(GainCardsRow.size()-1).egg;
 		}
-		return check;
-		
+		return check;	
 	}
 	public void checkAmountofFood()
 	{
@@ -399,8 +385,7 @@ public class Player {
 		for (String keys : Food.keySet())  
 		{
 		   System.out.println(keys + ":"+ Food.get(keys));
-		}
-		
+		}	
 	}
 	public void DisplayHand()
 	{
@@ -409,8 +394,7 @@ public class Player {
 			System.out.println(i+":" + Hand.get(i).name + "" + "FoodType:" + Hand.get(i).TypeOfFood + "Habitat:" + Hand.get(i).Habitat);
 		}
 		System.out.println();
-		checkAmountofFood();
-		
+		checkAmountofFood();	
 	}
 	public void DisplayHandAvail(String hab)
 	{
@@ -423,11 +407,6 @@ public class Player {
 			}
 		}
 	}
-	
-	
-	
-	
-	
 	public void ViewBoard()
 	{
 		System.out.println();
@@ -457,12 +436,9 @@ public class Player {
 			}
 		}
 		System.out.println();
-
 	}
 	public int score()///Evaluates the score for the player on how many eggs they have in their habitat for now.
 	{
 		return eggs;
-	}
-
-	
+	}	
 }
