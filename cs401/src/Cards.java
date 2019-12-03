@@ -18,7 +18,7 @@ public class Cards {
 		{
 			
 		}
-		Cards(int e,String n, String typeFood,String h){
+		public Cards(int e,String n, String typeFood,String h){
 			this.egg = e;
 			this.name = n;
 			this.Habitat = h;
